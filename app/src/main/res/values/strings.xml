@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="cairo_eg">Cairo, EG</string>
+    <string name="wind">Wind</string>
+    <string name="time">06:40 AM</string>
+    <string name="_3_27_2021_16_08_pm">3/27/2021 , 16:08 PM</string>
+    <string name="sunset">Sunset</string>
+    <string name="min_temp_05_05_am">Min Temp: 05:05 AM</string>
+    <string name="max_temp_05_05_am">Max Temp: 05:05 AM</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="clear">Clear</string>
+    <string name="_29_c">29°C</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="created_by">Created by</string>
+    <string name="seif_eldin">Seif Eldin</string>
+    <string name="wind_picture">wind Picture</string>
+    <string name="sunrise_picture">sunrise Picture</string>
+    <string name="sunset_picture">sunset Picture</string>
+    <string name="pressure_picture">pressure Picture</string>
+    <string name="humidity_picture">Humidity Picture</string>
+    <string name="info_picture">info Picture</string>
+</resources>
