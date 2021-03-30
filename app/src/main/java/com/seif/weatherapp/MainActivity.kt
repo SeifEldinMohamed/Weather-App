@@ -1,11 +1,16 @@
 package com.seif.weatherapp
 
+import android.annotation.SuppressLint
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.edit_country_name.*
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.URL
@@ -13,11 +18,36 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    val City: String = "Cairo,EG"
+    var City: String = "Cairo,EG"
     val API: String = "5688c6236fceb305faf351a5a473c8ea"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        txt_address.setOnClickListener {
+            val dialog = AlertDialog.Builder(this)
+            val inflater = layoutInflater
+            val dialogLayout = inflater.inflate(R.layout.edit_country_name,null)
+            val edittext = dialogLayout.findViewById<EditText>(R.id.edit_countryName)
+            with(dialog){
+                title = "Enter City and Country Name"
+                setMessage("Ex: Cairo,Egypt")
+                setPositiveButton("Apply"){ dialog, which->
+                    if (edittext.text != null){
+                        City = edittext.text.trim().toString()
+                        weatherTask().execute()
+                    }
+                    else{
+                        Toast.makeText(this@MainActivity, "Please enter City and Country name!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                setNegativeButton("Cancel"){dialog, which->
+
+                }
+                setView(dialogLayout)
+                show()
+            }
+        }
 
         weatherTask().execute()
 
@@ -92,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 // Populating extracted data into our views
                 txt_address.text = address
                 txt_date.text = updatedAtText
-                txt_status.text = weatherDescription.capitalize()
+                txt_status.text = weatherDescription.toUpperCase()
                 txt_degree.text = temp
                 txt_minT.text = tempMin
                 txt_maxT.text = tempMax
