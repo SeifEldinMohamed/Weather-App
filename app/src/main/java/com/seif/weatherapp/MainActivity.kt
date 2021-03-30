@@ -103,7 +103,6 @@ class MainActivity : AppCompatActivity() {
                 txt_Vwind.text = windSpeed
                 txt_Vpressure.text = pressure
                 txt_Vhumidity.text = humidity
-
                 // Views populated, Hiding the progressBar, Showing the main design.
                 progressBar.visibility = View.GONE
                 MainContainer.visibility = View.VISIBLE
