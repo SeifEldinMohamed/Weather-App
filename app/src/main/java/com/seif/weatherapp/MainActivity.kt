@@ -24,13 +24,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        swipeToRefresh.setOnRefreshListener {
+            weatherTask().execute()
+            swipeToRefresh.isRefreshing = false
+        }
         txt_address.setOnClickListener {
             val dialog = AlertDialog.Builder(this)
             val inflater = layoutInflater
             val dialogLayout = inflater.inflate(R.layout.edit_country_name, null)
             val edittext = dialogLayout.findViewById<EditText>(R.id.edit_countryName)
             with(dialog) {
-                title = "Enter City and Country Name"
+                setTitle("Enter City and Country Name")
                 setMessage("Ex: Cairo,Egypt")
                 setPositiveButton("Apply") { dialog, which ->
                     if (edittext.text != null) {
@@ -51,9 +55,6 @@ class MainActivity : AppCompatActivity() {
                 show()
             }
         }
-
-        weatherTask().execute()
-
         info_layout.setOnClickListener {
             val dialog = AlertDialog.Builder(this)
             with(dialog) {
@@ -66,6 +67,12 @@ class MainActivity : AppCompatActivity() {
                 }.show()
             }
         }
+        btn_backHome.setOnClickListener {
+            City = "Cairo,EG"
+            weatherTask().execute()
+        }
+
+        weatherTask().execute()
 
     }
 
@@ -76,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
             MainContainer.visibility = View.GONE
             txt_Error.visibility = View.GONE
+            btn_backHome.visibility = View.GONE
         }
 
         override fun doInBackground(vararg params: String?): String? {
@@ -151,6 +159,7 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 progressBar.visibility = View.GONE
                 txt_Error.visibility = View.VISIBLE
+                btn_backHome.visibility = View.VISIBLE
             }
         }
     }
