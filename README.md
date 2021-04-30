@@ -7,13 +7,12 @@
 # Features
 - Material Design
 - Android Cards
-- show many weather details (min and max temp, sunrise, sunset, wind speed, )
+- Show many weather details (Min and Max Temp, Sunrise, Sunset, Wind Speed, Pressure, Humidity)
 - Search for your favourite Countries and cities
 - Refresh gestures pulling down from the top
 - Rain falls down when weather is rainy
 - Snow falls down when weather is snowy
 - Simple and clean
-
 
 <img src = "screen%20shots/splash.jpeg" width = "300">
 <img src = "screen%20shots/Home.jpeg" width = "300">
