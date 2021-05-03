@@ -14,6 +14,7 @@
 - Snow falls down when weather is snowy
 - Simple and clean
 
+# Screen Shots
 <img src = "screen%20shots/splash.jpeg" width = "300">
 <img src = "screen%20shots/Home.jpeg" width = "300">
 <img src = "screen%20shots/search.jpeg" width = "300">
